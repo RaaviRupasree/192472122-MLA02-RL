@@ -1,29 +1,14 @@
-import numpy as np
-import random
-
-states = 4
-actions = 2
-
-Q = np.zeros((states, actions))
-
 alpha = 0.5
 gamma = 0.9
-epsilon = 0.2
+current_value = 10
+reward = 5
+next_value = 12
 
-for episode in range(10):
-    state = random.randint(0, states - 1)
-    
-    if random.random() < epsilon:
-        action = random.randint(0, actions - 1)
-    else:
-        action = np.argmax(Q[state])
-    
-    reward = random.randint(0, 10)
-    next_state = random.randint(0, states - 1)
-    
-    Q[state][action] = Q[state][action] + alpha * (
-        reward + gamma * np.max(Q[next_state]) - Q[state][action]
-    )
+updated_value = current_value + alpha * (
+    reward + gamma * next_value - current_value
+)
 
-print("Learned Q-Table:\n")
-print(Q)
+print("Current State Value :", current_value)
+print("Reward :", reward)
+print("Next State Value :", next_value)
+print("Updated State Value :", updated_value)
