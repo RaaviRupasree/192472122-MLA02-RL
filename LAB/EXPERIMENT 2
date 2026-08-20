@@ -1,0 +1,11 @@
+import random
+
+rooms = ["Living Room", "Kitchen", "Bedroom", "Bathroom"]
+
+print("Smart Home Robot Navigation\n")
+
+for i in range(5):
+    current_room = random.choice(rooms)
+    print("Step", i + 1, ": Robot moved to", current_room)
+
+print("\nNavigation Completed Successfully.")
